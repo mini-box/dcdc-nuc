@@ -1,6 +1,6 @@
 # Console monitoring application for Mini-Box DCDC NUC
 
-[alt text] !(http://www.mini-box.com/Mini-Box-DCDC-NUC-b.jpg "DCDC NUC")
+![alt text](http://www.mini-box.com/Mini-Box-DCDC-NUC-b.jpg "DCDC NUC")
 
 
 ## Installation
