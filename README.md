@@ -2,8 +2,11 @@
 
 ![alt text](http://www.mini-box.com/Mini-Box-DCDC-NUC-b.jpg "DCDC NUC")
 
+## Hardware Installation:
 
-## Installation
+http://wiki.mini-box.com/index.php?title=DCDC-NUC
+
+## Software Installation
 
 Before compiling the application make sure libusb dependency is installed. In Ubuntu it can be installed using the following command:
 
