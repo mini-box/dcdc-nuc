@@ -1,22 +1,36 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(dcdc_nuc)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-###########
-## Build ##
-###########
+# catkin for ROS if found
+find_package(catkin QUIET)
 
-include_directories(include)
+add_executable(
+  ${PROJECT_NAME}_console
+  src/${PROJECT_NAME}.cpp
+  src/${PROJECT_NAME}_console.cpp
+)
 
-add_executable(${PROJECT_NAME}_console src/${PROJECT_NAME}.cpp src/${PROJECT_NAME}_console.cpp)
-target_link_libraries(${PROJECT_NAME}_console ${catkin_LIBRARIES} usb)
+target_include_directories(
+  ${PROJECT_NAME}_console PRIVATE
+  include
+  ${catkin_INCLUDE_DIRS}
+)
 
-#############
-## Install ##
-#############
+target_link_libraries(
+  ${PROJECT_NAME}_console
+  usb
+)
 
-## Mark executables and/or libraries for installation
-install(TARGETS ${PROJECT_NAME}_console
-  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}
+if(catkin_FOUND)
+  target_link_libraries(
+    ${PROJECT_NAME}_console
+    ${catkin_LIBRARIES}
+  )
+endif()
+
+install(
+  TARGETS ${PROJECT_NAME}_console
+  RUNTIME DESTINATION bin
 )
